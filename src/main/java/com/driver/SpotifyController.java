@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("spotify")
 public class SpotifyController {
-
     //Autowire will not work in this case, no need to change this and add autowire
     SpotifyService spotifyService = new SpotifyService();
 
