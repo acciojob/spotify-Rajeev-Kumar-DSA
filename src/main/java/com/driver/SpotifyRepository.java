@@ -75,8 +75,8 @@ public class SpotifyRepository {
         creatorPlaylistMap.put(user, playlist);
         playlistListenerMap.put(playlist, new ArrayList<>(Collections.singletonList(user)));
         List<Song> songsOfLength = new ArrayList<>();
-        for(Song song : songs){
-            if(song.getLength() == length){
+        for (Song song : songs) {
+            if (song.getLength() == length) {
                 songsOfLength.add(song);
             }
         }
@@ -93,16 +93,16 @@ public class SpotifyRepository {
         creatorPlaylistMap.put(user, playlist);
         playlistListenerMap.put(playlist, new ArrayList<>(Collections.singletonList(user)));
         List<Song> songsByName = new ArrayList<>();
-        for(String songTitle : songTitles){
+        for (String songTitle : songTitles) {
             Song song = songs.stream().filter(s -> s.getTitle().equals(songTitle)).findFirst().orElse(null);
-            if(song != null){
+            if (song != null) {
                 songsByName.add(song);
             }
         }
         playlistSongMap.put(playlist, songsByName);
         userPlaylistMap.putIfAbsent(user, new ArrayList<>());
         userPlaylistMap.get(user).add(playlist);
-        return  playlist;
+        return playlist;
     }
 
     public Playlist findPlaylist(String mobile, String playlistTitle) throws Exception {
